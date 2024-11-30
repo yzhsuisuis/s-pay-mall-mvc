@@ -1,4 +1,4 @@
-package cn.bugstack.domain.po;
+package cn.bugstack.domain.vo;
 
 import java.util.HashMap;
 import java.util.Map;

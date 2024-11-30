@@ -1,6 +1,6 @@
 package cn.bugstack.service.impl;
 
-import cn.bugstack.domain.po.WeixinTemplateMessageVO;
+import cn.bugstack.domain.vo.WeixinTemplateMessageVO;
 import cn.bugstack.domain.req.WeixinQrCodeReq;
 import cn.bugstack.domain.res.WeixinQrCodeRes;
 import cn.bugstack.domain.res.WeixinTokenRes;

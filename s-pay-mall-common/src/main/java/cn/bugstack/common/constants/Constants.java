@@ -39,8 +39,8 @@ public class Constants {
         CLOSE("CLOSE", "超时关单 - 超市未支付"),
         ;
 
-        private final String code;
-        private final String desc;
+        private  String code;
+        private  String desc;
 
     }
 
