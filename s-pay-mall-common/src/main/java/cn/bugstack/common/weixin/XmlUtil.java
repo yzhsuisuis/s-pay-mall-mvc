@@ -140,6 +140,8 @@ public class XmlUtil {
         // XStream对象设置默认安全防护，同时设置允许的类
         XStream stream = new XStream(new DomDriver());
         stream.addPermission(AnyTypePermission.ANY);
+        //我自己添加的
+        stream.setClassLoader(clazz.getClassLoader());
         XStream.setupDefaultSecurity(stream);
         stream.allowTypes(new Class[]{clazz});
         stream.processAnnotations(new Class[]{clazz});
