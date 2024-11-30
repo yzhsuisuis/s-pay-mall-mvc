@@ -1,11 +1,19 @@
 server:
-  port: 8092
+  port: 8080
   tomcat:
     max-connections: 20
     threads:
       max: 20
       min-spare: 10
     accept-count: 10
+
+weixin:
+  config:
+    originalid: gh_e067c267e057
+    token: b8b6
+    app-id: wx63ded3b1ebcc8d1f
+    app-secret: 60b02843278a87dbafa40b81d5e90ae5
+    template_id: hIs44PNrUH9Qd7RUk_vPpksSMGt08LVIqUHjmgsJFQ4
 
 #spring:
 #  datasource:
