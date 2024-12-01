@@ -40,6 +40,7 @@ public class WeixinLoginServiceImpl implements ILoginService {
     @Resource
     private Cache<String, String> openidToken;
 
+
     @Override
     public String createQrCodeTicket() throws IOException {
         //target: 获取ticket
@@ -75,6 +76,7 @@ public class WeixinLoginServiceImpl implements ILoginService {
         Call<WeixinQrCodeRes> call = weixinApiService.createQrCode(token, weixinQrCodeReq);
         WeixinQrCodeRes weixinQrCodeRes = call.execute().body();
         assert null != weixinQrCodeRes;
+//        Ticket.put("Ticket",weixinQrCodeRes.getTicket());
         return weixinQrCodeRes.getTicket();
     }
 
