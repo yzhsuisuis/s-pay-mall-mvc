@@ -29,6 +29,7 @@
         where order_id = #{orderId}
     </update>
 
+
     <select id="queryUnPayOrder" parameterType="cn.bugstack.domain.po.PayOrder" resultMap="dataMap">
         select product_id, product_name, order_id, order_time, total_amount, status, pay_url
         from pay_order
@@ -36,5 +37,27 @@
         order by id desc
         limit 1
     </select>
+    <select id="queryNoPayNotifyOrder" parameterType="java.lang.String" resultType="java.lang.String">
+        select order_id as orderId FROM pay_order
+        WHERE status = 'PAY_WAIT' AND NOW() >= order_time + INTERVAL 1 MINUTE
+        ORDER BY id ASC
+        LIMIT 10
+    </select>
+    <select id="queryTimeoutCloseOrder" parameterType="java.lang.String" resultType="java.lang.String">
+        SELECT order_id as orderId FROM pay_order
+        WHERE status = 'PAY_WAIT' AND NOW() >= order_time + INTERVAL 30 MINUTE
+        ORDER BY id ASC
+            LIMIT 50
+
+    </select>
+
+    <update id="changeOrderPaySuccess" parameterType="cn.bugstack.domain.po.PayOrder">
+        update pay_order set status = #{status},pay_time = now(),update_time = now()
+        where order_id = #{orderId}
+    </update>
+    <update id="changeOrderClose" parameterType="java.lang.String">
+        update pay_order set status = 'CLOSE', pay_time = now(), update_time = now()
+        where order_id = #{orderId}
+    </update>
 
 </mapper>
