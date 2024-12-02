@@ -14,6 +14,7 @@ data/log/
 *.iml
 *.ipr
 *.html
+data/log/*.log
 
 ### Eclipse ###
 .apt_generated
